@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="login">
+            <div class="insta-title">
+                <h1>Instagram</h1>
+            </div>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="info">
+                    <input type="text" id="username" name="username" value="" placeholder="Phone number, username or email"><br>
+                    <input type="password" id="password" name="password" value="" placeholder="Password"><br>
+                    <input type="submit" value="Log in">
+                </div>
+            </form>
+            <div class="terms">
+                <p>By logging in, you agree to our </p>
+                <p><strong>Terms, Data Policy</strong> and <strong>Cookies</p>
+                <p>Policy.</strong></p>
+            </div>
+            <div class="reg-re">
+                <p>Don't have an account? <a href="/register" style="text-decoration: none; color: #3897f0;">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
+    "django_google_sso",  
+    "main_app",
 ]
 
 MIDDLEWARE = [
@@ -121,3 +124,16 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'social_core.backends.google.GoogleOAuth2',
+]
+
+
+GOOGLE_SSO_CLIENT_ID = '1075412327471-auqcotgjvmr4o83it25mf1htjnp7dsvu.apps.googleusercontent.com'
+GOOGLE_SSO_CLIENT_SECRET = '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'
+GOOGLE_SSO_PROJECT_ID = 'instagram-clone-327019'
+
+GOOGLE_SSO_ALLOWABLE_DOMAINS = ["gmail.com", "example.com","example.ca"]
