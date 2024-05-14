@@ -49,3 +49,6 @@ def loginPage(request):
             return redirect('register')
     context = {}
     return render(request, 'main/login.html', context)
+
+def chat(request):
+    return render(request, 'main/chat.html')

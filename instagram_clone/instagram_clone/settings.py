@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "daphne",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,8 +41,17 @@ INSTALLED_APPS = [
     'social_django',
     "django_google_sso",  
     "main_app",
+
 ]
 
+ASGI_APPLICATION = "instagram_clone.asgi.application"
+
+CHANNEL_LAYERS = {
+    'default': {
+        "BACKEND": 'channels.layers.InMemoryChannelLayer'
+    }
+}
+# Do this only for testing use Redis when for production 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
