@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Profile</title>
+    <style>
+        .profile-pic-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <h2>Edit Profile</h2>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="info">
+            {{ form.non_field_errors }}
+            <div>
+                {{ form.first_name.label_tag }}<br>
+                {{ form.first_name }}
+                {% for error in form.first_name.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <div>
+                {{ form.last_name.label_tag }}<br>
+                {{ form.last_name }}
+                {% for error in form.last_name.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <div>
+                {{ form.bio.label_tag }}<br>
+                {{ form.bio }}
+                {% for error in form.bio.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <div class="profile-pic-wrapper">
+                {% load static %}
+                <img id="profile-pic-preview" class="profile-pic" src="{% if user_profile.photo %}{{ user_profile.photo.url }}{% else %}{% static 'default_profile_pic.jpg' %}{% endif %}" alt="Profile Picture Preview">
+            </div>
+            <div>
+                {{ form.photo.label_tag }}<br>
+                {{ form.photo }}
+                {% for error in form.photo.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <div>
+                <input type="submit" value="Edit">
+            </div>
+        </div>
+    </form>
+    <script>
+        document.getElementById('id_photo').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profile-pic-preview').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>

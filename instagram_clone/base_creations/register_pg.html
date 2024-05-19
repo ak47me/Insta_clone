@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/base_creations/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="insta_image">
+            <div class="image">
+                <img src="/base_creations/images/instaphoto.png" alt="logo" style="height: 100%;">
+            </div>  
+        </div>
+        
+        <div class="register">
+            <div class="insta-title">
+                <h1>Instagram</h1>
+            </div>
+            <div class="insta-line">
+                <h4>Sign up to see photos and videos</h4>
+                <h4>from your friends.</h4>
+            </div>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="info">
+                    <input type="text" id="email" name="email" value="" placeholder="Mobile Number or Email"><br>
+                    <input type="text" id="fname" name="fname" value="" placeholder="Full Name"><br>
+                    <input type="text" id="user" name="user" value="" placeholder="Username"><br>
+                    <input type="text" id="pass1" name="pass1" value="" placeholder="Password"><br>
+                    <input type="text" id="pass2" name="pass2" value="" placeholder="Retype Password"><br>
+                    <input type="submit" value="Sign up" style ">
+                </div>
+            </form>
+            <div class="terms">
+                <p>By signing up, you agree to our </p>
+                <p><strong>Terms, Data Policy</strong> and <strong>Cookies</p>
+                <p>Policy.</strong></p>
+            </div>
+            <div class="login-re">
+                <p>Have an account? <a href="/login" style="text-decoration: none; color: #3897f0;">Log in</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

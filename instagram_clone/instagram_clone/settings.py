@@ -51,6 +51,14 @@ CHANNEL_LAYERS = {
         "BACKEND": 'channels.layers.InMemoryChannelLayer'
     }
 }
+'''CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}'''
 # Do this only for testing use Redis when for production 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -147,3 +155,7 @@ GOOGLE_SSO_CLIENT_SECRET = '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'
 GOOGLE_SSO_PROJECT_ID = 'instagram-clone-327019'
 
 GOOGLE_SSO_ALLOWABLE_DOMAINS = ["gmail.com", "example.com","example.ca"]
+
+import os
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
