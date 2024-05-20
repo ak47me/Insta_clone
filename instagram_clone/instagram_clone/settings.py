@@ -159,3 +159,8 @@ GOOGLE_SSO_ALLOWABLE_DOMAINS = ["gmail.com", "example.com","example.ca"]
 import os
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATIC_URL = 'static/'
+STATICFILES_DIRS = (
+    '/home/azaveri/Insta_clone/instagram_clone/main_app/static',
+)

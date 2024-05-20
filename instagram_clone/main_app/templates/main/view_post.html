@@ -1,0 +1,56 @@
+<html>
+  <head>
+  <meta charset="UTF-8">
+  {% load static %}
+    <link rel="stylesheet" href="{% static 'post_view_styles.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .profile-pic-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .profile-pic {
+        width: 400px;
+        height: 300px;
+        /* border-radius: 50%; */
+        object-fit: contain;
+    }
+</style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="profile">
+        <h4>{{user_profile.first_name}} {{user_profile.last_name}}</h4>  
+        <img src="{% if user_profile.photo %}{{ user_profile.photo.url }}{% else %}{% static 'default_profile_pic.jpg' %}{% endif %}"/> 
+        <i class="bi bi-three-dots-vertical fa-2x" style="color:gray;" ></i>
+      </div> 
+        <div class="profile-pic-wrapper">
+            {% load static %}
+            <img id="profile-pic-preview" class="profile-pic" src="{% if post.pic %}{{ post.pic.url }}{% else %}{% static 'default_profile_pic.jpg' %}{% endif %}"/ > 
+        </div>
+      
+     <div class="icons">
+        <i id="like" class="bi bi-heart fa-2x "></i>
+        <i class="bi bi-chat-left fa-2x"></i>
+        <i class="bi bi-arrow-up-right-square fa-2x"></i>
+        <i  id="save" class="bi bi-bookmark  fa-2x"></i>
+     </div>
+      <div class="about-post">
+        <!-- <h4><img src="https://picsum.photos/id/26/20"/>  Liked by Gandijuha and 104,424 others</h4> -->
+        <br>
+        <br>
+        <h4 class="name_caption">{{user_profile.first_name}} {{user_profile.last_name}}  <span id="caption">{{post.content}}</span></h4> 
+      <!-- <h5 style="margin-top:-20px;">View all 69 comments</h5>  -->
+         <h4><input type="text" placeholder="add a comment                                           &#128512;&#128516;&#128525;&#128151;" style="margin-top:-10px;"/></h4>
+        <h6>{{post.date}}</h6>
+      </div>
+    </div>
+  </body>
+</html>

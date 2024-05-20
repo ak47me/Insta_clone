@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
-from main_app.models import UserProfile
+from main_app.models import UserProfile, Post  
 
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Mobile Number or Email'}))
@@ -24,4 +24,13 @@ class EditProfileForm(forms.ModelForm):
             'last_name': forms.TextInput(attrs={'placeholder': 'Last Name'}),
             'bio': forms.Textarea(attrs={'placeholder': 'Bio'}),
             'photo': forms.FileInput(attrs={'placeholder': 'Profile Picture'}),
+        }
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['content', 'pic']
+        widgets = {
+            'content': forms.Textarea(attrs={'placeholder': 'Write something...'}),
+            'pic': forms.FileInput(attrs={'placeholder': 'Upload a picture...'})
         }

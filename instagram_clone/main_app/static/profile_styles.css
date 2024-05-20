@@ -26,6 +26,8 @@ img {
     max-width: 93.5rem;
     margin: 0 auto;
     padding: 0 2rem;
+    margin-left: 16rem;
+    margin-right: -10rem;
 }
 
 .btn {

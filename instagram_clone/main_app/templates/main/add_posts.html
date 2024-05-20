@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add post</title>
+</head>
+<body>
+    <h2>Add post</h2>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="info">
+            {{ form.non_field_errors }}
+            <div>
+                {{ form.pic.label_tag }}<br>
+                {{ form.pic }}
+                {% for error in form.pic.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <div>
+                {{ form.content.label_tag }}<br>
+                {{ form.content }}
+                {% for error in form.content.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <div>
+                {{ form.photo.label_tag }}<br>
+                {{ form.photo }}
+                {% for error in form.photo.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+            </div>
+            <div>
+                <input type="submit" value="Create">
+            </div>
+        </div>
+    </form>
+</body>
+</html>

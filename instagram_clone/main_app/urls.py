@@ -14,6 +14,9 @@ urlpatterns = [
     path("home/", views.home, name="home"), 
     path('edit_profile/', views.edit_profile, name='edit_profile'),
     path('logout/', views.logoutUser, name='logout'),
+    path('post/', views.post, name='post'),
+    path("post/<int:post_id>/", views.view_post, name="post_detail"),
+    path('search/', views.search, name='search'),
 
 ]
 
