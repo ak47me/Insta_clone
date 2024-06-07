@@ -17,7 +17,9 @@
                     </div>
                     <ul class="list-group list-group-flush">
                         {% for user in all_users %}
+                        
                         {% if user.first_name is not cur_user.first_name %}
+                        <img src="{% if user_profile.photo %}{{ user_profile.photo.url }}{% else %}{% static 'default_profile_pic.jpg' %}{% endif %}" alt="Profile Picture">
                         <li class="list-group-item">
                             {{ user.first_name }} {{ user.last_name }}
                         </li>

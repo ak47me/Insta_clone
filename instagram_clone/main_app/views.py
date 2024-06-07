@@ -116,6 +116,8 @@ def view_post(request, post_id):
 def search(request):
     all_users = User.objects.all()
     cur_user = request.user
+    all_profiles = UserProfile.objects.all()
+    print(all_users[0].__dict__)
     # print(all_users[0].first_name)
     print(cur_user.first_name)
-    return render(request, 'main/search.html', {'all_users': all_users, 'cur_user': cur_user})
+    return render(request, 'main/search.html', {'all_users': all_users, 'cur_user': cur_user, 'all_profiles': all_profiles})
